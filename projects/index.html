@@ -1,0 +1,22 @@
+---
+layout: page
+title: Projects
+background: '/img/bg-post.jpg'
+---
+
+{% assign projects = site.projects | sort: 'date' | reverse %}
+
+{% for project in projects %}
+
+<article class="post-preview">
+  <a href="{{ project.url | relative_url }}">
+    <h2 class="post-title">{{ project.title }}</h2>
+  </a>
+  {% if project.date %}
+  <p class="post-meta">Published on {{ project.date | date: '%B %d, %Y' }}</p>
+  {% endif %}
+</article>
+
+<hr>
+
+{% endfor %}

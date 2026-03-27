@@ -13,7 +13,7 @@ layout: default
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>{{ site.title }}</h1>
+            <h1 style="font-size: 4rem;">{{ site.title }}</h1>
             {% if site.description %}
             <span class="subheading">{{ site.description }}</span>
             {% endif %}
@@ -29,36 +29,44 @@ layout: default
 
         {{ content }}
 
-        <!-- Home Post List -->
-        {% for post in site.posts limit : 5 %}
-
-        <article class="post-preview">
-          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h2 class="post-title">{{ post.title }}</h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-            {% endif %}
-          </a>
-          <p class="post-meta">Posted by
-            {% if post.author %}
-            {{ post.author }}
-            {% else %}
-            {{ site.author }}
-            {% endif %}
-            on
-            {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}            
-          </p>
-        </article>
+        <!-- About Me Section -->
+        <section id="about-me" class="about-me">
+          <div class="about-container">
+            <div class="about-text">
+              <h1>About Me</h1>
+              <img src="/img/profile.jpg" alt="Profile Photo" class="profile-photo">
+              <p>
+                My name is Nathen Kurniasurja. I am a passionate software developer with a Master’s in Electrical Engineering from the University of Melbourne. I enjoy solving complex problems and building both software and hardware solutions. I specialize in machine learning, data analysis, and visualization, while also exploring full-stack development and IoT systems to expand my capabilities.
+              </p>
+              <p>
+                Through this site, I aim to share projects that I find interesting and hope others will too.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <hr>
 
+        <!-- My Projects List -->
+         <h1> My Projects</h1>
+        {% assign projects = site.projects | sort: 'date' | reverse | slice: 0, 5 %}
+
+        {% for project in projects %}
+          <article class="post-preview">
+            <a href="{{ project.url | relative_url }}" style="text-decoration: underline;">
+              <p>{{ project.title }}</p>
+            </a>
+            <!-- <p class="post-meta">
+              Posted on {{ project.date | date: '%B %d, %Y' }}
+            </p> -->
+          </article>
+
+          <hr>
         {% endfor %}
 
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">View All Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="{{"/projects" | relative_url }}">View All Projects &rarr;</a>
         </div>
 
       </div>

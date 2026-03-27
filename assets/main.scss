@@ -3,3 +3,13 @@
 ---
 
 @import "styles";
+
+/* Profile Image */
+.profile-photo {
+  width: 150px;             /* smaller size */
+  height: 150px;
+  border-radius: 50%;       /* makes it perfectly round */
+  object-fit: cover;        /* ensures image fills the circle */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: -10px;
+}
