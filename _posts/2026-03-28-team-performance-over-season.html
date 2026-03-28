@@ -1,0 +1,30 @@
+---
+layout: post
+title: "Visualizing Team Performance over the Season"
+date: 2026-03-29
+project: data_analysis_fpl
+---
+
+<p>
+    In this post, I am trying to find out how team performance change throughout the season (better known as form).
+    To do this I tried implementing the ELO system which changes each game depending on the result.
+    I split performance up into attack and defence and plot the ELO over the <b>2024/25 season</b>.
+</p>
+
+<iframe src="{{ '/assets/plots/attack_elo_hover_highlight.html' | relative_url }}" 
+        width="620px" height="620px" frameborder="0"></iframe>
+
+<iframe src="{{ '/assets/plots/defence_elo_hover_highlight.html' | relative_url }}" 
+        width="620px" height="620px" frameborder="0"></iframe>
+
+<p>
+    It seems that besides a few exception around December, most teams have an overall gradual change in performance.
+    This makes it reasonable to assume future performance based on recent ones. It is however imperative to mention
+    that the changes in performance for the discrete gameweeks are not smooth, hence the trend does not apply to every gameweek
+    in the incline/decline.
+</p>
+
+<p>
+    The original reason behind this analysis, is that I was looking to find out if I could save up free transfers for a predictable
+    form change. However, from the plots it looks like the duration of how a form lasts are too random to predict (too many factors play a part).
+</p>
